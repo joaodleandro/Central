@@ -4,6 +4,9 @@ services:
   web:
     build:
       context: .
+    # Keep changes inside container to outside of it
+    volumes:
+      - .:/project
     depends_on:
       - postgres
     environment:
