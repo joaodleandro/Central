@@ -1,4 +1,5 @@
-from typing import Self
+from typing import Optional
+
 import strawberry
 
 
@@ -8,7 +9,7 @@ class ErrorType:
     field: str
 
     @classmethod
-    def from_errors(cls, errors) -> list[Self]:
+    def from_errors(cls, errors) -> list["ErrorType"]:
         if isinstance(errors, list):
             return [
                 cls(field=error["field"], messages=error["messages"])
@@ -23,7 +24,7 @@ class ErrorType:
 @strawberry.interface
 class BasePayload:
     success: bool
-    errors: list[ErrorType] | None
+    errors: Optional[list[ErrorType]]
 
 
 @strawberry.type

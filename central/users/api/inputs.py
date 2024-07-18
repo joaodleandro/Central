@@ -1,21 +1,21 @@
 import datetime
 import strawberry
 from typing import Optional
-from strawberry import ID, UNSET
+from strawberry import ID
 
 
 @strawberry.input
 class CreateUserInput:
     password: str
-    last_login: Optional[datetime.datetime] = UNSET
-    is_superuser: Optional[bool] = UNSET
+    last_login: Optional[datetime.datetime]
+    is_superuser: Optional[bool]
     username: str
-    first_name: Optional[str] = UNSET
-    last_name: Optional[str] = UNSET
-    email: Optional[str] = UNSET
-    is_staff: Optional[bool] = UNSET
-    is_active: Optional[bool] = UNSET
-    date_joined: Optional[datetime.datetime] = UNSET
+    first_name: Optional[str]
+    last_name: Optional[str]
+    email: Optional[str]
+    is_staff: Optional[bool]
+    is_active: Optional[bool]
+    date_joined: Optional[datetime.datetime]
 
 
 @strawberry.input
